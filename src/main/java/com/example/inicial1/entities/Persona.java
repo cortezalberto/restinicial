@@ -1,9 +1,6 @@
 package com.example.inicial1.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -20,5 +17,8 @@ public class Persona {
     private Long id;
     private String nombre;
     private String apellido;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_domicilio")
+    private Domicilio domicilio;
 }
 
