@@ -1,5 +1,6 @@
 package com.example.inicial1.controllers;
 
+import com.example.inicial1.dtos.PersonaDto;
 import com.example.inicial1.entities.Persona;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,14 +27,14 @@ public class PersonaController {
     }
 
     @PostMapping
-    public ResponseEntity<String> createPersona(@RequestBody Persona persona) {
+    public ResponseEntity<String> createPersona(@RequestBody PersonaDto persona) {
         // Lógica para crear una nueva persona
         String response = "Persona creada con éxito";
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<String> updatePersona(@PathVariable Long id, @RequestBody Persona persona) {
+    public ResponseEntity<String> updatePersona(@PathVariable Long id, @RequestBody PersonaDto persona) {
         System.out.println("el nombre a actualizae es :" + persona.getNombre());
 
 
