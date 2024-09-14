@@ -5,13 +5,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
 
 @RestController
 @RequestMapping("/personas")
 public class PersonaController {
-    private List<Persona> personas = new ArrayList<>();
+
 
     @GetMapping("/{id}")
     public ResponseEntity<String> getPersona(@PathVariable Long id) {
@@ -36,8 +34,11 @@ public class PersonaController {
 
     @PutMapping("/{id}")
     public ResponseEntity<String> updatePersona(@PathVariable Long id, @RequestBody Persona persona) {
-        // Lógica para actualizar la persona por ID
-        String response = "Persona actualizada con éxito";
+        System.out.println("el nombre a actualizae es :" + persona.getNombre());
+
+
+        // Lógica para actualizar la persona por ID + id
+        String response = "Persona actualizada con éxito" + id;
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
